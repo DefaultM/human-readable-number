@@ -54,7 +54,7 @@ module.exports = function toReadable(number) {
     let x = 0;
     while (x < num.length) {
         if (len >= 3) {
-            if (num[x] - "0" != 0) {
+            if (+num[x] != 0) {
                 result += sinDigits[+num[x]] + " ";
                 result += tensPower[len - 3] + " ";
             }
@@ -76,7 +76,7 @@ module.exports = function toReadable(number) {
         }
         ++x;
     }
-    return result.slice(-1) == " " ?
-        result.substring(0, result.length - 1) :
-        result;
+    return result.slice(-1) == " "
+        ? result.substring(0, result.length - 1)
+        : result;
 };
